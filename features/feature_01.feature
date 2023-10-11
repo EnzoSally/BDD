@@ -1,8 +1,8 @@
 # language: pt
 
-Funcionalidade: Site inicial Atitus
+Funcionalidade: Site Inicial Atitus
 
-cenário: Banner Vestibular
+Cenário: Banner Vestibular
 
-Quando eu acesso a pagina principal
+Quando eu acesso a página principal
 Então deve ser mostrado um banner sobre vestibular no topo

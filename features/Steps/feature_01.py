@@ -8,4 +8,5 @@ def acessar_site(context):
 
 @then("deve ser mostrado um banner sobre vestibular")
 def banner_vestibular(context):
-    pass
+    context.web
+    
