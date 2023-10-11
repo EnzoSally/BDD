@@ -6,20 +6,19 @@ from selenium.webdriver.support import expected_conditions as EC
 
 base_url = "https://nubank.com.br/"
 
-@given("que esteja na tela inicial")
+@given("que esteja na tela inicial do nubank")
 def acessar_site(context):
     context.web.get(base_url)
 
-@when('preencho campo de cpf com um valor inválido: "{cpf}"')
+@when('preencher cpf com valor "{cpf}"')
 def step_impl(context, cpf):    
     context.web.find_element(By.ID, "field-cpf").clear()
     context.web.find_element(By.ID, "field-cpf").send_keys(cpf)
 
-@then('verificar se é disparada a mensagem "{msg}"')
-def valida_msg(context, msg):      
-    try:
-        p_cpf_error = WebDriverWait(context.web, 10).until(EC.presence_of_element_located((By.ID, "error-cpf")))
+    #encontrar o botao form
+    btn_continuar = context.web.find_element(By.CSS_SELECTOR, "form button")
+    btn_continuar.click()
 
-        return True if p_cpf_error.text == msg.strip() else False
-    except NoSuchElementException:
-        raise AssertionError('Elemento não encontrado')
+@then('completar o Cadastro com os valores "{nome}" "{celular}" "{email_01}" "{email_02}"')
+def step_impl(context, nome, celular, email_01, email_02):      
+    pass
