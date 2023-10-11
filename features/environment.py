@@ -7,5 +7,5 @@ def after_step(context, step):
     print()
 
 def after_all(context):
-    #context.web.quit()
-    pass
+    context.web.quit()
+    
